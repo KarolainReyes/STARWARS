@@ -1,0 +1,42 @@
+/*GENERAL*/
+
+body {
+    margin: 0;
+    font-family: "Starwars";
+}
+
+@font-face {
+    font-family: "Starwars";
+    src: url('fonts/star_jedi/starjedi/Starjedi.ttf');
+    font-weight: 600;
+}
+
+/*Desktop*/
+
+/*Pagina Principal*/
+
+.encabezado {
+    display: flex;
+    height: 10vh;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+    z-index:5;
+}
+
+#lego {
+    width: 5vh;
+}
+
+#starwars {
+    width: 15vh;
+    margin-left: 1vh;
+}
+
+.pagina-principal-cuerpo{background-color: black;display: flex;color:white;box-sizing: border-box;}
+
+.barra-personajes{width: 24%;}
+.barra-naves{width: 24%;}
+.barra-peliculas{width: 24%;}
+.barra-planetas{width: 24%;}
+.barra-blanca{background-color: white;width: 8px;box-shadow: 0 0 20px  10px red;z-index: 4;}
