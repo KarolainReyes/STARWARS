@@ -1,0 +1,41 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.contenedor_movies {
+    display: grid;
+
+    grid-template-areas: "pelicula1 pelicula2 pelicula3"
+        "pelicula4 pelicula5 pelicula6";
+
+}
+
+.contenedor_movies img {
+    width: 80%;
+    height: 90%;
+}
+
+.pelicula1 {
+    grid-area: pelicula1;
+}
+
+.pelicula2 {
+    grid-area: pelicula2;
+}
+
+.pelicula3 {
+    grid-area: pelicula3;
+}
+
+.pelicula4 {
+    grid-area: pelicula4;
+}
+
+.pelicula5 {
+    grid-area: pelicula5;
+}
+
+.pelicula6 {
+    grid-area: pelicula6;
+}
