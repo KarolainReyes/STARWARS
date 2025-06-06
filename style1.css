@@ -22,6 +22,7 @@ body {
     align-items: center;
     justify-content: center;
     z-index:5;
+    width: 100%;
 }
 
 #lego {
@@ -33,10 +34,21 @@ body {
     margin-left: 1vh;
 }
 
-.pagina-principal-cuerpo{background-color: black;display: flex;color:white;box-sizing: border-box;}
+.pagina-principal-cuerpo{background-color: black;display: flex;color:white;box-sizing: border-box;height: 90vh;}
 
-.barra-personajes{width: 24%;}
-.barra-naves{width: 24%;}
-.barra-peliculas{width: 24%;}
-.barra-planetas{width: 24%;}
-.barra-blanca{background-color: white;width: 8px;box-shadow: 0 0 20px  10px red;z-index: 4;}
+
+.tarjeta-inicio{width: 24.5%;display: flex;box-sizing: border-box;flex-direction: column;text-align: center;overflow: hidden;height: 90vh;align-items: center;justify-content: space-between;}
+
+.tarjeta-inicio h1{position:relative;top:0;font-size: 30px;opacity: 100% !important;}
+
+.tarjeta-inicio img{opacity: 50%;}
+.tarjeta-inicio:hover {animation: ampliar 0.5s forwards;}
+.tarjeta-inicio:hover img{opacity: 100%;}
+
+
+@keyframes ampliar{
+    from{width: 24.5%;}
+    to {width: 50%;}
+}
+
+.barra-blanca{background-color: white;width: 0.8%;box-shadow: 0 0 20px 10px red;z-index: 4;}
