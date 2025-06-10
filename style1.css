@@ -45,10 +45,17 @@ body {
 .tarjeta-inicio:hover {animation: ampliar 0.5s forwards;}
 .tarjeta-inicio:hover img{opacity: 100%;}
 
+.planeta-complementario{display: flex;flex-direction: row;justify-content: space-around;align-items: center;visibility: hidden;}
+.planeta-complementario-visible{width: 100%;display: flex;flex-direction: row;justify-content: space-around;}
+#planeta1{width:150px;height: 150px;opacity: 80%;}
+#planeta2{width:300px; height: auto;opacity: 80%;}
 
 @keyframes ampliar{
     from{width: 24.5%;}
     to {width: 50%;}
 }
 
-.barra-blanca{background-color: white;width: 0.8%;box-shadow: 0 0 20px 10px red;z-index: 4;}
+.barra-blanca{background-color: white;width: 0.8%;z-index: 4;}
+#sable1{box-shadow: 8px 0px 12px red,-8px 0px 12px red}
+#sable2{box-shadow: 8px 0px 12px rgb(102, 0, 128),-8px 0px 12px rgb(102, 0, 128)}
+#sable3{box-shadow: 8px 0px 12px rgb(0, 119, 255),-8px 0px 12px rgb(0, 102, 255)}
