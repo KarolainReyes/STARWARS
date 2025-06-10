@@ -11,6 +11,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .encabezado {
@@ -21,6 +22,7 @@ body {
     justify-content: center;
     z-index: 5;
     width: 100%;
+    position: fixed;
 }
 
 /*Vista Peliculas*/
@@ -63,23 +65,37 @@ body {
 
 /*Vista Naves*/
 
-h1 {
+#titulo-naves {
     color: white;
     font-size: 8vh;
+    position: fixed;
+    top: 10vh;
+    z-index: 6;
 }
 
 .contenedor_naves {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-areas: "halcon-milenario descrip-halcon-milenario"
-    "descrip-crucero-estelar crucero-estelar"
-    "interceptor-jedi-de-ahsoka descrip-interceptor-jedi-de-ahsoka"
-    "descrip-caza-tie-y-ala-x-fusionados caza-tie-y-ala-x-fusionados";
+        "descrip-crucero-estelar crucero-estelar"
+        "interceptor-jedi-de-ahsoka descrip-interceptor-jedi-de-ahsoka"
+        "descrip-caza-tie-y-ala-x-fusionados caza-tie-y-ala-x-fusionados";
     width: 80%;
+    top: 20vh;
+    position: relative;
+    overflow-y: scroll;
+    height: 80vh;
+    box-shadow: 2px 5px 10px 10px rgba(255, 255, 255, 0.219);
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
-.main-starships{
-    display: flex;flex-direction: column;align-items: center;
+.main-starships {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #halcon-milenario {
@@ -118,11 +134,32 @@ h1 {
 .descripcion-naves {
     background-color: black;
     color: white;
+    text-align: center;
+    padding: 5vh;
 }
 
 
 .videos-naves {
     box-sizing: border-box;
     background-color: white;
+    width: 100%;
+
+}
+
+.video-crucero {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.video-halcon {
+    width: 100%;
+}
+
+.subtitulo {
+    padding: 2vh;
+    color: white;
+    font-size: 5vh;
+    z-index: 6;
+    text-align: center;
 
 }
