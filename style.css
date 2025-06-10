@@ -8,15 +8,25 @@ body {
     width: 100%;
     height: 100%;
     padding-top: 80px;
-    background-image: url(images/fondo.jpg);
+    background-image: url(images/fondo.jpeg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
+.encabezado {
+    display: flex;
+    height: 10vh;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    width: 100%;
+}
+
+/*Vista Peliculas*/
 .contenedor_movies {
     display: grid;
-
     grid-template-areas: "pelicula1 pelicula2 pelicula3"
         "pelicula4 pelicula5 pelicula6";
 
@@ -51,12 +61,38 @@ body {
     grid-area: pelicula6;
 }
 
-.encabezado {
+/*Vista Naves*/
+
+.body_naves {
     display: flex;
-    height: 10vh;
-    background-color: black;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    z-index: 5;
-    width: 100%;
+}
+
+.contenedor_naves {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50% 50%;
+    height: 300px;
+    justify-items: center;
+    align-items: center;
+    grid-template-areas: "halcon-milenario descrip-halcon-milenario";
+    width: 80%;
+}
+
+#halcon-milenario {
+    grid-area: halcon-milenario;
+}
+
+#descrip-halcon-milenario {
+    grid-area: descrip-halcon-milenario;
+}
+
+.descripcion-naves {
+    background-color: black;
+    color: white;
+}
+
+.videos-naves {
+    background-color: white;
 }
