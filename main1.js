@@ -5,10 +5,12 @@
 const planetasPanel = document.getElementById("aaa")
 planetasPanel.addEventListener("mouseover",planetasMostrar);
 const planetasComplementario = document.getElementById("plane");
+const planeta1 = document.getElementById("planeta1");
+const planeta2 = document.getElementById("planeta2");
 console.log(planetasComplementario.classList)
 function planetasMostrar(){
     planetasComplementario.classList.replace("planeta-complementario","planeta-complementario-visible");
-    console.log(planetasComplementario.classList)
+   
 }   
 planetasPanel.addEventListener("mouseout",planetasOcultar);
 function planetasOcultar(){
@@ -17,3 +19,4 @@ function planetasOcultar(){
 
 //Enlaces
 
+//abierto para añadir enlaces principales
