@@ -21,7 +21,7 @@ body {
     background-color: black;
     align-items: center;
     justify-content: center;
-    z-index:5;
+    z-index: 5;
     width: 100%;
 }
 
@@ -34,44 +34,167 @@ body {
     margin-left: 1vh;
 }
 
-.pagina-principal-cuerpo{background-color: black;display: flex;color:white;box-sizing: border-box;height: 90vh;}
-
-
-.tarjeta-inicio{width: 24.5%;display: flex;box-sizing: border-box;flex-direction: column;text-align: center;overflow: hidden;height: 90vh;align-items: center;justify-content: space-between;}
-
-.tarjeta-inicio h1{position:relative;top:0;font-size: 30px;opacity: 100% !important;}
-
-.tarjeta-inicio img{opacity: 50%;}
-.tarjeta-inicio:hover {animation: ampliar 0.5s forwards;}
-.tarjeta-inicio:hover img{opacity: 100%;}
-
-.planeta-complementario{display: flex;flex-direction: row;justify-content: space-around;align-items: center;visibility: hidden;}
-.planeta-complementario-visible{width: 100%;display: flex;flex-direction: row;justify-content: space-around;}
-#planeta1{width:150px;height: 150px;}
-#planeta2{width:300px; height: auto;}
-
-@keyframes ampliar{
-    from{width: 24.5%;}
-    to {width: 50%;}
+.pagina-principal-cuerpo {
+    background-color: black;
+    display: flex;
+    color: white;
+    box-sizing: border-box;
+    height: 90vh;
 }
 
-.barra-blanca{background-color: white;width: 0.8%;z-index: 4;}
-#sable1{box-shadow: 8px 0px 12px red,-8px 0px 12px red}
-#sable2{box-shadow: 8px 0px 12px rgb(102, 0, 128),-8px 0px 12px rgb(102, 0, 128)}
-#sable3{box-shadow: 8px 0px 12px rgb(0, 119, 255),-8px 0px 12px rgb(0, 102, 255)}
+
+.tarjeta-inicio {
+    width: 24.5%;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
+    height: 90vh;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tarjeta-inicio h1 {
+    position: relative;
+    top: 0;
+    font-size: 30px;
+    opacity: 100% !important;
+}
+
+.tarjeta-inicio img {
+    opacity: 50%;
+}
+
+.tarjeta-inicio:hover {
+    animation: ampliar 0.5s forwards;
+}
+
+.tarjeta-inicio:hover img {
+    opacity: 100%;
+}
+
+.planeta-complementario {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    visibility: hidden;
+}
+
+.planeta-complementario-visible {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#planeta1 {
+    width: 150px;
+    height: 150px;
+}
+
+#planeta2 {
+    width: 300px;
+    height: auto;
+}
+
+@keyframes ampliar {
+    from {
+        width: 24.5%;
+    }
+
+    to {
+        width: 50%;
+    }
+}
+
+.barra-blanca {
+    background-color: white;
+    width: 0.8%;
+    z-index: 4;
+}
+
+#sable1 {
+    box-shadow: 8px 0px 12px red, -8px 0px 12px red
+}
+
+#sable2 {
+    box-shadow: 8px 0px 12px rgb(102, 0, 128), -8px 0px 12px rgb(102, 0, 128)
+}
+
+#sable3 {
+    box-shadow: 8px 0px 12px rgb(0, 119, 255), -8px 0px 12px rgb(0, 102, 255)
+}
 
 /*Pagina de personajes*/
 
-.cuerpo-personajes{
-    display: flex;flex-direction: column;width: 100%;
+.cuerpo-personajes {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
-.tarjeta-personaje{width: 100%;display: flex;align-items: center;justify-content: space-around;height: 30vh;}
-.tarjeta-personaje img{max-width: 30vh;max-height: 20vh;}
+.tarjeta-personaje {
+    gap: 5vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
+    overflow: hidden;
+    color: rgb(0, 0, 0);
+}
 
-.humanos{background-color: rgb(248, 215, 68);}
-.droid{background-color: rgb(56, 247, 238);}
-.yoda{background-color: rgb(255, 76, 76);}
-.wookie{background-color: rgb(40, 167, 40);}
+.tarjeta-personaje h1 {
+    width: 30%;
+    margin: 0;
+    text-align: center;
+    flex-shrink: 0;
+    /* Evita que se encoja */
+}
 
-.barra-blanca-personaje{width: 100%;height: 0.8vh;box-shadow: 0px 8px 8px red,0px -8px 8px red;z-index: 10;}
+.tarjeta-personaje:hover {
+    animation: ampliarVertical 0.5s forwards;
+}
+
+@keyframes ampliarVertical {
+    from {
+        height: 30vh
+    }
+
+    to {
+        height: 40vh;
+    }
+}
+
+.tarjeta-personaje img {
+    max-width: 30vh;
+    height: auto;
+    display: block;
+}
+
+.humanos {
+    background-color: #f8d744;
+}
+.humanos:hover{background-color: #ffe77c;color:white}
+.droid {
+    background-color: rgb(56, 247, 238);
+}
+.droid:hover{background-color: #83fdf7;color:white}
+.yoda {
+    background-color: rgb(255, 76, 76);
+}
+.yoda:hover{background-color: rgb(252, 124, 124);color:white}
+.wookie {
+    background-color: rgb(40, 167, 40);
+}
+.wookie:hover{background-color: rgb(71, 160, 71);color:white}
+
+
+.barra-blanca-personaje {
+    width: 100%;
+    height: 0.8vh;
+    box-shadow: 0px 8px 8px red, 0px -8px 8px red;
+    z-index: 10;
+}
