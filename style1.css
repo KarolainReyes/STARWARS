@@ -135,7 +135,7 @@ body {
     width: 100%;
 }
 
-.tarjeta-personaje {
+.tarjeta{
     gap: 5vh;
     width: 100%;
     display: flex;
@@ -144,19 +144,56 @@ body {
     height: 30vh;
     overflow: hidden;
     color: rgb(0, 0, 0);
+    flex-direction: column;
+    height: auto;
 }
 
-.tarjeta-personaje h1 {
-    width: 30%;
-    margin: 0;
-    text-align: center;
-    flex-shrink: 0;
-    /* Evita que se encoja */
-}
-
-.tarjeta-personaje:hover {
+.tarhumanos{background-color: #f8d744;}
+.tarhumanos-extendido{background-color: #f8d744;
+display: flex;align-self: center;min-height: 40vh;}
+.tarhumanos:hover {
+    background-color: #ffe77c;
+    color: white;
     animation: ampliarVertical 0.5s forwards;
 }
+.tardroid {
+    background-color: rgb(56, 247, 238);
+}
+.tardroid-extendido {
+    background-color: rgb(56, 247, 238);
+}
+.tardroid:hover {
+    background-color: #83fdf7;
+    color: white;
+    animation: ampliarVertical 0.5s forwards;
+}
+.taryoda {
+    background-color: rgb(255, 76, 76);
+}
+.taryoda-extendido {
+    background-color: rgb(255, 76, 76);
+}
+
+.taryoda:hover {
+    background-color: rgb(252, 124, 124);
+    color: white;
+    animation: ampliarVertical 0.5s forwards;
+}
+.tarwookie {
+    background-color: rgb(40, 167, 40);
+}
+.tarwookie-extendido {
+    background-color: rgb(40, 167, 40);
+}
+.tarwookie:hover {
+    background-color: rgb(71, 160, 71);
+    color: white;
+    animation: ampliarVertical 0.5s forwards;
+}
+
+.tarjeta-personaje{display: flex;flex-direction: row;align-items: center;justify-content: center;gap: 3vh;}
+.tarjeta-personaje img{max-height: 30vh;max-width: 30%;}
+
 
 @keyframes ampliarVertical {
     from {
@@ -167,34 +204,27 @@ body {
         height: 40vh;
     }
 }
+.oculto{display: none;}
+.humanos{display: flex;width: 100%;gap: 3vh;box-sizing: border-box;align-items: center;justify-content: center;margin-bottom: 5vh;flex-wrap: wrap;}
+.tarjeta-charac{display: flex;flex-direction: column;width: 30%;border-radius: 10%;box-shadow: 3px 3px 3px black;background-color: rgba(255, 255, 255, 0.164);padding: 3vh;text-align: center;box-sizing: border-box;}
+.tarjeta-charac img{max-width: 80%;align-self: center;}
 
-.tarjeta-personaje img {
-    max-width: 30vh;
-    height: auto;
-    display: block;
-}
-
-.humanos {
-    background-color: #f8d744;
-}
-.humanos:hover{background-color: #ffe77c;color:white}
-.droid {
-    background-color: rgb(56, 247, 238);
-}
-.droid:hover{background-color: #83fdf7;color:white}
-.yoda {
-    background-color: rgb(255, 76, 76);
-}
-.yoda:hover{background-color: rgb(252, 124, 124);color:white}
-.wookie {
-    background-color: rgb(40, 167, 40);
-}
-.wookie:hover{background-color: rgb(71, 160, 71);color:white}
 
 
 .barra-blanca-personaje {
     width: 100%;
     height: 0.8vh;
-    box-shadow: 0px 8px 8px red, 0px -8px 8px red;
     z-index: 10;
+}
+
+#bar1 {
+    box-shadow: 0px 8px 5px red, 0px -8px 5px red
+}
+
+#bar2 {
+    box-shadow: 0px 8px 5px rgb(101, 0, 126), 0px -8px 5px rgb(102, 0, 128)
+}
+
+#bar3 {
+    box-shadow: 0px 8px 5px rgb(0, 119, 255), 0px -8px 5px rgb(0, 102, 255)
 }
