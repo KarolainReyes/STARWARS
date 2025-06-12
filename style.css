@@ -27,7 +27,6 @@ body {
 }
 
 /*Vista Peliculas*/
-
 .contenedor_logo {
     display: flex;
     justify-content: center;
@@ -53,17 +52,6 @@ body {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-#content-section {
-    padding: 40px;
-    min-height: 150vh;
-}
-
-.contenedor_movies {
-    display: grid;
-    grid-template-areas: "pelicula1 pelicula2 pelicula3"
-        "pelicula4 pelicula5 pelicula6";
-
-}
 
 #logo-starwars {
     margin: 20px;
@@ -72,32 +60,73 @@ body {
 }
 
 
-.contenedor_movies img {
-    width: 80%;
-    height: 90%;
+
+
+.caratulas {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 1vh;
+    text-align: center;
+    gap: 1vh;
 }
 
-.pelicula1 {
+.caratulas img {
+    width: 100%;
+max-width: 20vw;
+min-width: 20vw;}   
+
+.contenedor_movies {
+    display: grid;
+    grid-template-areas: "pelicula1 pelicula2 pelicula3"
+        "pelicula4 pelicula5 pelicula6";
+    grid-column: 20% 20% 20%;
+    grid-row: 40% 40%;
+    gap: 5vh;
+    overflow:hidden;
+    width: 80%;align-self: center;justify-self: center;
+    
+}
+
+#pelicula1 {
     grid-area: pelicula1;
+    width: 100%;
 }
-
-.pelicula2 {
+#pelicula1:hover {width: 40vw;
+}
+#pelicula1:hover .contenido-oculto{display: block;}
+#pelicula2:hover {width: 40vw;
+}
+#pelicula2:hover .contenido-oculto{display: block;}
+#pelicula3:hover {width: 40vw;
+}
+#pelicula3:hover .contenido-oculto{display: block;}
+#pelicula4:hover {width: 40vw;
+}
+#pelicula4:hover .contenido-oculto{display: block;}
+#pelicula5:hover {width: 40vw;
+}
+#pelicula5:hover .contenido-oculto{display: block;}
+#pelicula6:hover {width: 40vw;box-sizing: border-box;
+}
+#pelicula2 {
     grid-area: pelicula2;
 }
 
-.pelicula3 {
+#pelicula3 {
     grid-area: pelicula3;
 }
 
-.pelicula4 {
+#pelicula4 {
     grid-area: pelicula4;
 }
 
-.pelicula5 {
+#pelicula5 {
     grid-area: pelicula5;
 }
 
-.pelicula6 {
+#pelicula6 {
     grid-area: pelicula6;
 }
 
@@ -112,53 +141,14 @@ body {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.peliculas img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.descripcion-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+.contenido-oculto {
     color: white;
-    padding: 10px;
-    box-sizing: border-box; 
-    transform: translateY(100%); 
-    transition: transform 0.3s ease-in-out;
-    text-align: center;
-    opacity: 0;
+    background-color: rgb(179, 175, 175);
+    display: none;
+    width: 20vh;
 }
 
-.descripcion-overlay h3 {
-    margin-top: 0;
-    margin-bottom: 5px;
-    font-size: 1.2em;
-}
 
-.descripcion-overlay p {
-    margin: 0;
-    font-size: 0.9em;
-}
-
-/*Hover*/
-
-.pelicula1:hover {
-    width: 280px;
-}
-
-.pelicula1:hover img {
-    opacity: 0.6;
-}
-
-.pelicula1:hover .descripcion-overlay {
-    transform: translateY(0); 
-    opacity: 1; }
 
 /*Vista Naves*/
 

@@ -1,4 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
+//PAGINA DE NAVES
+
+if (document.body.classList.contains("body-naves")) {document.addEventListener('DOMContentLoaded', () => {
     const scrollSection = document.getElementById('scroll-section');
     const scrollTiggerPoint = 100;
 
@@ -16,4 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleScroll);
 
     handleScroll();
-});
+});}
+
+//PAGINA DE PELICULAS
+if (document.body.classList.contains("body-movies")) {
+
+}
+    
