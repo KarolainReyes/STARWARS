@@ -129,22 +129,41 @@ body {
 
 /*Pagina de personajes*/
 
+.pagina-personajes{height: 100%;}
 
-.tarjeta-personaje{display: flex;flex-direction: row;align-items: center;justify-content: center;gap: 3vh;}
-.tarjeta-personaje img{max-height: 30%;max-height: 30vh;}
+.tarjeta{
+  gap: 8vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  color: rgb(0, 0, 0);
+  flex-direction: column;
+box-sizing: content-box;
+}
+.tarjeta label{position: absolute;right: 5vw;}
+
+.tarjeta-personaje{display: flex;flex-direction: row;align-items: center;justify-content: center;gap: 3vh;width: 60%;}
+.tarjeta-personaje img{max-height: 30%;width: 30%;}
+.tarjeta-personaje h1{font-size: 2.5rem;width: 30%;text-align: center;}
 
 
 @keyframes ampliarVertical {
     from {
-        height: 30vh
+        height: 40%
     }
 
     to {
-        height: 40vh;
+        height: 80%;
     }
 }
+
+
 .oculto{display: none;}
-.humanos{display: flex;width: 100%;gap: 3vh;box-sizing: border-box;align-items: center;justify-content: center;margin-bottom: 5vh;flex-wrap: wrap;}
+.humanos,.droid,.yoda,.wookie{display: flex;width: 100%;gap: 3vh;box-sizing: border-box;align-items: center;justify-content: center;margin-bottom: 5vh;flex-wrap: wrap;}
 .tarjeta-charac{display: flex;flex-direction: column;width: 30%;border-radius: 10%;box-shadow: 3px 3px 3px black;background-color: rgb(44, 44, 44);padding: 3vh;text-align: center;box-sizing: border-box;color: white;}
 .tarjeta-charac img{max-width: 80%;align-self: center;}
 .texto-boton{display: flex;flex-direction: column;align-items: center;justify-content: center;width: 30%;}
@@ -174,24 +193,12 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-}
-
-.tarjeta{
-    gap: 5vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 30vh;
-    overflow: hidden;
-    color: rgb(0, 0, 0);
-    flex-direction: column;
-    height: auto;
+    height: 100%;
 }
 
 .tarhumanos{background-color: #f8d744;}
-.tarhumanos-extendido{background-color: #f8d744;
-display: flex;align-self: center;min-height: 40vh;}
+.tarhumanos-extendido{background-color: #f8d744;color: white;
+display: flex;align-self: center;min-height: 40%;}
 .tarhumanos:hover {
     background-color: #ffe77c;
     color: white;
@@ -201,7 +208,7 @@ display: flex;align-self: center;min-height: 40vh;}
     background-color: rgb(56, 247, 238);
 }
 .tardroid-extendido {
-    background-color: rgb(56, 247, 238);
+    background-color: rgb(56, 247, 238);color: white;
 }
 .tardroid:hover {
     background-color: #83fdf7;
@@ -212,7 +219,7 @@ display: flex;align-self: center;min-height: 40vh;}
     background-color: rgb(255, 76, 76);
 }
 .taryoda-extendido {
-    background-color: rgb(255, 76, 76);
+    background-color: rgb(255, 76, 76);color: white;
 }
 
 .taryoda:hover {
@@ -224,15 +231,13 @@ display: flex;align-self: center;min-height: 40vh;}
     background-color: rgb(40, 167, 40);
 }
 .tarwookie-extendido {
-    background-color: rgb(40, 167, 40);
+    background-color: rgb(40, 167, 40);color: white;
 }
 .tarwookie:hover {
     background-color: rgb(79, 204, 79);
     color: white;
     animation: ampliarVertical 0.5s forwards;
 }
-
-
 
 
 
