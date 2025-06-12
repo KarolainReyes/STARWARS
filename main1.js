@@ -34,16 +34,39 @@ if (document.body.classList.contains("pagina-personajes")) {
 }
 
 function cargarPersonajesPage() {
-    console.log("aaa")
-    const humanos = document.getElementsByClassName("tarhumanos")[0];
-    console.log(humanos)
-    const tarjetaHuman = document.getElementsByClassName("oculto")[0];
-    console.log(tarjetaHuman)
-    humanos.addEventListener("click", mostrarPersonajes);
-    function mostrarPersonajes() {
-        tarjetaHuman.classList.replace("oculto","humanos")
-        humanos.classList.replace("tarhumanos","tarhumanos-extendido")
-    }
+    const botonHumanos = document.getElementById("boton-mostrar-humanos");
+    const humanos = document.getElementById("tarhumanos")
+    const tarjetaHuman = document.getElementById("personajesHumanos")
+    let humanoClick = false
+    botonHumanos.addEventListener("click",()=>{
+        if(!humanoClick){
+            tarjetaHuman.classList.replace("oculto", "humanos");
+            humanos.classList.replace("tarhumanos", "tarhumanos-extendido");
+            humanoClick = true;
+        }else{
+            tarjetaHuman.classList.replace("humanos","oculto");
+            humanos.classList.replace("tarhumanos-extendido","tarhumanos");
+            humanoClick=false;
+        }
+
+
+    })
+
+
+    // const humanos = document.getElementsByClassName("tarhumanos")[0];
+    // const tarjetaHuman = document.getElementsByClassName("oculto")[0];
+    // console.log(tarjetaHuman)
+    // humanos.addEventListener("click", mostrarPersonajes);
+    
+    // function mostrarPersonajes() {
+    //     
+    // }
+    // const humanosexten = document.getElementById("tarhumano");
+    // console.log(humanosexten)
+    // humanosexten.addEventListener("click",noMostrarPersonajes);
+    // function noMostrarPersonajes(){
+    //     
+    // }
 
 
 
