@@ -244,7 +244,7 @@ display: flex;align-self: center;min-height: 40%;}
 
 .barra-de-busqueda{margin: 4vh;}
 .pagina-mundo{background-color: rgba(11,13,15,255);display: flex;flex-direction: column;}
-#mapa-mundo{width: 60%;box-sizing: border-box;position: relative;}
+#mapa-mundo{width: 60%;position: relative;}
 #mapa-constela{width: 100%;opacity: 100%;}
 .mapa-barra{display: flex;width: 100%;justify-content: space-around;}
 .tabla{width: 30%;}
@@ -277,19 +277,16 @@ display: flex;align-self: center;min-height: 40%;}
 #planeta11:hover{transform: scale(1.3);}
 
 
-.contenidoPlanetas{
+.contenidoPlanetas{display: flex;flex-direction: column;
   z-index: 10;
-  width: auto;
   color: white;
   background-color: rgba(128, 128, 128, 0.521);
   border: 1px white solid;
-  box-sizing: border-box;
-  flex-wrap: wrap;
   padding: 2vh;
-  word-break: normal;border-radius: 5%;}
+border-radius: 5%;white-space: nowrap;}
 
-  .contenidoPlanetas h1{font-size: 20px;}
-  .contenidoPlanetas h2{font-size: 15px;}
+  .contenidoPlanetas h1{font-size: 2rem;width: 100%;}
+  .contenidoPlanetas h2{font-size: 1rem;width: 100% ;}
 
 
 

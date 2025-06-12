@@ -108,42 +108,128 @@ if (document.body.classList.contains("pagina-personajes")) {
 /*PAGINAS PLANETAS*/
 
 
-if (document.body.classList.contains("pagina-planetas")){
+if (document.body.classList.contains("pagina-planetas")) {
 
 
-        /*mapa de planetas*/
-    document.addEventListener("click",function(event){
-        let planetaLista = [{planeta1:"barranca"},{planeta2:"aguachica"}]
-        if(event.target.classList.contains("planetas-mapa")){
-            let elemento = event.target;
-            let id = elemento.id.replace("planeta","");
-            const mapa = this.getElementById("mapa-mundo")
-            const estilos = getComputedStyle(elemento);
-            const izquierdo = (estilos.left);
-            const altura = estilos.top;
-            let izq = Number(izquierdo.replace("px"," "));
-            let multi//meterle los if para definir el tipo de aumento en el left, y tambien validar el codigo del planeta para usar una lista
-            let izquierda = Number(izq)+multi;
-            let contenidoPlaneta = document.createElement("div");
-            contenidoPlaneta.innerHTML= "<h1>Barranca</h1><h2>Clima:Templado</h2><h2>Atmosfera:Respirable</h2>";
-            contenidoPlaneta.classList.add("contenidoPlanetas");
-            console.log(contenidoPlaneta.classList)
-            contenidoPlaneta.style.position="absolute";
-            contenidoPlaneta.style.left=izquierda+"px";
-            contenidoPlaneta.style.top=altura;
-            
-            mapa.appendChild(contenidoPlaneta);
-        }
-        
-        else{console.log("no planeta")}
+    /*mapa de planetas*/
+    if (document.body.classList.contains("pagina-planetas")) {
 
+        let planetaActivo = null;
 
+        document.addEventListener("click", function (event) {
+            let planetaLista = [
+               
+                    {
+                        nombre: "Arcan",
+                        temperatura: "Templada",
+                        terreno: "Rocoso"
+                    },
+                
+                    {
+                        nombre: "Aguachica",
+                        temperatura: "Caliente",
+                        terreno: "Gaseoso"
+                    }
+                ,
+                    {
+                        nombre: "Ninve",
+                        temperatura: "Frio",
+                        terreno: "Rocoso"
+                    }
+                ,
 
+                    {
+                        nombre: "Aqua",
+                        temperatura: "Templada",
+                        terreno: "Acuatico"
+                    }
+                ,
+                    {
+                        nombre: "Friolandia",
+                        temperatura: "Frio",
+                        terreno: "Rocoso"
+                    }
+                ,
+                    {
+                        nombre: "Jupiter",
+                        temperatura: "Templada",
+                        terreno: "Gaseoso"
+                    }
+                ,
+                    {
+                        nombre: "N891",
+                        temperatura: "Extremo caliente",
+                        terreno: "Rocoso"
+                    }
+                ,
+                    {
+                        nombre: "Josa",
+                        temperatura: "Templada",
+                        terreno: "Rocoso"
+                    }
+                ,
+                    {
+                        nombre: "JUid",
+                        temperatura: "Templada",
+                        terreno: "Acuatico"
+                    }
+                ,
+                    {
+                        nombre: "Arcan",
+                        temperatura: "Templada",
+                        terreno: "Rocoso"
+                    }
+                ,
+                    {
+                        nombre: "Estrella de la muerte",
+                        temperatura: "Templada",
+                        terreno: "Metalico"
+                    }
+                
+            ];
+            let planetaDis = [0.7, 0.12, 1.6, 0.5, 0.6, 0.2, 0.25, 0.15, 0.16, 0.13, 0.2];
 
+            if (event.target.classList.contains("planetas-mapa")) {
+                const elemento = event.target;
+                let id = Number(elemento.id.replace("planeta", ""));
+                if (planetaActivo === id) {
+                    const infoAnterior = document.getElementById("planetaInfo");
+                    if (infoAnterior) infoAnterior.remove();
+                    planetaActivo = null;
+                    return;
+                }
 
-    })
+                const infoAnterior = document.getElementById("planetaInfo");
+                if (infoAnterior) infoAnterior.remove();
 
+                planetaActivo = id;
 
+                id -= 1;
+
+                const mapa = document.getElementById("mapa-mundo");
+                const estilos = getComputedStyle(elemento);
+                const izquierdo = estilos.left;
+                const altura = estilos.top;
+                let izq = Number(izquierdo.replace("px", ""));
+                let multi = izq * planetaDis[id];
+                let izquierda = izq + multi;
+
+                let contenidoPlaneta = document.createElement("div");
+                contenidoPlaneta.id = "planetaInfo";
+                contenidoPlaneta.innerHTML =`<h1> ${planetaLista[id].nombre}</h1><h2>Temperatura : ${planetaLista[id].temperatura}</h2><h2>Terreno : ${planetaLista[id].terreno}</h2>`;
+                contenidoPlaneta.classList.add("contenidoPlanetas");
+                contenidoPlaneta.style.position = "absolute";
+                contenidoPlaneta.style.left = izquierda + "px";
+                contenidoPlaneta.style.top = altura;
+
+                mapa.appendChild(contenidoPlaneta);
+
+            } else {
+                console.log("no planeta");
+            }
+        });
+
+    }
 
 
 
