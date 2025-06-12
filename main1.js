@@ -103,3 +103,48 @@ if (document.body.classList.contains("pagina-personajes")) {
         })
     }
 }
+
+
+/*PAGINAS PLANETAS*/
+
+
+if (document.body.classList.contains("pagina-planetas")){
+
+
+        /*mapa de planetas*/
+    document.addEventListener("click",function(event){
+        let planetaLista = [{planeta1:"barranca"},{planeta2:"aguachica"}]
+        if(event.target.classList.contains("planetas-mapa")){
+            let elemento = event.target;
+            let id = elemento.id.replace("planeta","");
+            const mapa = this.getElementById("mapa-mundo")
+            const estilos = getComputedStyle(elemento);
+            const izquierdo = (estilos.left);
+            const altura = estilos.top;
+            let izq = Number(izquierdo.replace("px"," "));
+            let multi//meterle los if para definir el tipo de aumento en el left, y tambien validar el codigo del planeta para usar una lista
+            let izquierda = Number(izq)+multi;
+            let contenidoPlaneta = document.createElement("div");
+            contenidoPlaneta.innerHTML= "<h1>Barranca</h1><h2>Clima:Templado</h2><h2>Atmosfera:Respirable</h2>";
+            contenidoPlaneta.classList.add("contenidoPlanetas");
+            console.log(contenidoPlaneta.classList)
+            contenidoPlaneta.style.position="absolute";
+            contenidoPlaneta.style.left=izquierda+"px";
+            contenidoPlaneta.style.top=altura;
+            
+            mapa.appendChild(contenidoPlaneta);
+        }
+        
+        else{console.log("no planeta")}
+
+
+
+
+
+    })
+
+
+
+
+
+}
