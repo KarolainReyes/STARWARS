@@ -113,91 +113,40 @@ if (document.body.classList.contains("pagina-planetas")) {
 
     /*mapa de planetas*/
     if (document.body.classList.contains("pagina-planetas")) {
-
+        const urlPlanetas = "https://swapi.dev/api/planets";
+            const opciones = {method:"GET"};
+            const lista = fetch (urlPlanetas,opciones)
+            .then((respuesta)=>{
+                if(respuesta.ok){
+                    return respuesta.json();
+                }
+            })
+            .then((datos)=>{
+                const peticionPlanetas = datos.results;
+                const segundaPeticionPlanetas = datos.next;
+                if(peticionPlanetas){
+                    return fetch (segundaPeticionPlanetas, opciones)
+                    .then((respuesta2)=>{
+                        if(respuesta2.ok){
+                            return respuesta2.json();
+                        }
+                    })
+                    .then((datos2)=>{
+                        const peticionPlanetas2 = datos2.results;
+                        listaPlanetas = peticionPlanetas.concat(peticionPlanetas2);
+                    })
+                }
+            })
         let planetaActivo = null;
-
+        let listaPlanetas = []
         document.addEventListener("click", function (event) {
-            let planetaLista = [
-               
-                    {
-                        nombre: "Arcan",
-                        temperatura: "Templada",
-                        terreno: "Rocoso"
-                    },
-                
-                    {
-                        nombre: "Aguachica",
-                        temperatura: "Caliente",
-                        terreno: "Gaseoso"
-                    }
-                ,
-                    {
-                        nombre: "Ninve",
-                        temperatura: "Frio",
-                        terreno: "Rocoso"
-                    }
-                ,
-
-                    {
-                        nombre: "Aqua",
-                        temperatura: "Templada",
-                        terreno: "Acuatico"
-                    }
-                ,
-                    {
-                        nombre: "Friolandia",
-                        temperatura: "Frio",
-                        terreno: "Rocoso"
-                    }
-                ,
-                    {
-                        nombre: "Jupiter",
-                        temperatura: "Templada",
-                        terreno: "Gaseoso"
-                    }
-                ,
-                    {
-                        nombre: "N891",
-                        temperatura: "Extremo caliente",
-                        terreno: "Rocoso"
-                    }
-                ,
-                    {
-                        nombre: "Josa",
-                        temperatura: "Templada",
-                        terreno: "Rocoso"
-                    }
-                ,
-                    {
-                        nombre: "JUid",
-                        temperatura: "Templada",
-                        terreno: "Acuatico"
-                    }
-                ,
-                    {
-                        nombre: "Arcan",
-                        temperatura: "Templada",
-                        terreno: "Rocoso"
-                    }
-                ,
-                    {
-                        nombre: "Estrella de la muerte",
-                        temperatura: "Templada",
-                        terreno: "Metalico"
-                    }
-                
-            ];
-            let planetaDis = [0.7, 0.12, 1.6, 0.5, 0.6, 0.2, 0.25, 0.15, 0.16, 0.13, 0.2];
-
+            let planetaDis = [0.7, 0.12, 1.6, 0.5, 0.6, 0.2, 0.25, 0.15, 0.16, 0.13, 0.2,1.9,0.4,0.3,0.1, 0.1,0.2,0.1,0.4,0.1];
+            
+            console.log(listaPlanetas)
             if (event.target.classList.contains("planetas-mapa")) {
                 const elemento = event.target;
                 let id = Number(elemento.id.replace("planeta", ""));
-                if (planetaActivo === id) {
-                    const infoAnterior = document.getElementById("planetaInfo");
-                    if (infoAnterior) infoAnterior.remove();
-                    planetaActivo = null;
-                    return;
-                }
+             
 
                 const infoAnterior = document.getElementById("planetaInfo");
                 if (infoAnterior) infoAnterior.remove();
@@ -216,8 +165,14 @@ if (document.body.classList.contains("pagina-planetas")) {
 
                 let contenidoPlaneta = document.createElement("div");
                 contenidoPlaneta.id = "planetaInfo";
-                contenidoPlaneta.innerHTML =`<h1> ${planetaLista[id].nombre}</h1><h2>Temperatura : ${planetaLista[id].temperatura}</h2><h2>Terreno : ${planetaLista[id].terreno}</h2>`;
-                contenidoPlaneta.classList.add("contenidoPlanetas");
+                contenidoPlaneta.innerHTML = `
+                <h1>${listaPlanetas[id].name}</h1>
+                <h2>Temperatura: ${listaPlanetas[id].climate}</h2>
+                <h2>Gravedad: ${listaPlanetas[id].gravity}</h2>
+                <h2>Terreno: ${listaPlanetas[id].terrain}</h2>
+                <h2>Población: ${listaPlanetas[id].population}</h2>
+              `;
+              contenidoPlaneta.classList.add("contenidoPlanetas");
                 contenidoPlaneta.style.position = "absolute";
                 contenidoPlaneta.style.left = izquierda + "px";
                 contenidoPlaneta.style.top = altura;
@@ -225,7 +180,10 @@ if (document.body.classList.contains("pagina-planetas")) {
                 mapa.appendChild(contenidoPlaneta);
 
             } else {
-                console.log("no planeta");
+                const infoAnterior = document.getElementById("planetaInfo");
+                    if (infoAnterior) infoAnterior.remove();
+                    planetaActivo = null;
+                    return;
             }
         });
 
@@ -233,4 +191,4 @@ if (document.body.classList.contains("pagina-planetas")) {
 
 
 
-}
+}   
