@@ -122,7 +122,7 @@ if (document.body.classList.contains("pagina-planetas")) {
 
     /*mapa de planetas*/
     if (document.body.classList.contains("pagina-planetas")) {
-        const urlPlanetas = "https://swapi.dev/api/planets";
+        const urlPlanetas = "https://swapi.py4e.com/api/planets";
         const opciones = { method: "GET" };
         const lista = fetch(urlPlanetas, opciones)
             .then((respuesta) => {
@@ -175,11 +175,11 @@ if (document.body.classList.contains("pagina-planetas")) {
                 let contenidoPlaneta = document.createElement("div");
                 contenidoPlaneta.id = "planetaInfo";
                 contenidoPlaneta.innerHTML = `
-                <h1>${listaPlanetas[id].name}</h1>
-                <h2>Temperatura: ${listaPlanetas[id].climate}</h2>
-                <h2>Gravedad: ${listaPlanetas[id].gravity}</h2>
-                <h2>Terreno: ${listaPlanetas[id].terrain}</h2>
-                <h2>Población: ${listaPlanetas[id].population}</h2>
+                <h1 style="color:white">${listaPlanetas[id].name}</h1>
+                <h2><span style="color:white">Temperatura:</span> ${listaPlanetas[id].climate}</h2>
+                <h2><span style="color:white">Gravedad:</span> ${listaPlanetas[id].gravity}</h2>
+                <h2><span style="color:white">Terreno:</span> ${listaPlanetas[id].terrain}</h2>
+                <h2><span style="color:white">Población:</span> ${listaPlanetas[id].population}</h2>
               `;
                 contenidoPlaneta.classList.add("contenidoPlanetas");
                 contenidoPlaneta.style.position = "absolute";
@@ -201,97 +201,207 @@ if (document.body.classList.contains("pagina-planetas")) {
 
 
 }
-
-
-/*CHARACTER PAGE */
-
 if (document.body.classList.contains("pagina-personajes")) {
     let listaHumanos = [];
     let listaDroides = [];
     let listaYodass = [];
     let listaWookiess = [];
-    const listaFotos = ["./assets/characters/1.png", "./assets/characters/2.png", "./assets/characters/3.png", "./assets/characters/4.png", "./assets/characters/1.png", "./assets/characters.html/1.png", "./assets/characters.html/1.png", "./assets/characters.html/1.png", "./assets/characters.html/1.png", "./assets/characters.html/1.png", "./assets/characters.html/1.png", "./assets/characters.html/1.png", "./assets/characters.html/1.png", "./assets/characters.html/1.png", "./assets/characters.html/1.png", "./assets/characters.html/1.png", "./assets/characters.html/1.png",]
-    const urlPersonajes = "https://swapi.dev/api/people";
+    const listaFotos = [
+        "./assets/characters/1.png", "./assets/characters/2.png", "./assets/characters/3.png",
+        "./assets/characters/4.png", "./assets/characters/5.png", "./assets/characters/6.png",
+        "./assets/characters/7.png", "./assets/characters/8.png", "./assets/characters/9.png",
+        "./assets/characters/10.png", "./assets/characters/11.png","./assets/characters/12.png",
+        "./assets/characters/13.png","./assets/characters/14.png","./assets/characters/15.png","./assets/characters/16.png"];
+
+    const urlPersonajes = "https://swapi.py4e.com/api/people/";
     const opciones = { method: "GET" };
 
     fetch(urlPersonajes, opciones)
-        .then(respuesta => respuesta.ok ? respuesta.json() : Promise.reject("Error al cargar personajes"))
+        .then(res => res.ok ? res.json() : Promise.reject("Error al cargar personajes"))
         .then(datos => {
-            const peticionPersonajes = datos.results;
-            const segundaPeticionPersonajes = datos.next;
-            return fetch(segundaPeticionPersonajes, opciones)
-                .then(respuesta2 => respuesta2.ok ? respuesta2.json() : Promise.reject("Error en segunda petición"))
-                .then(datos2 => {
-                    const peticionPersonajes2 = datos2.results;
-                    const listaPersonajes = peticionPersonajes.concat(peticionPersonajes2);
-
-                    listaPersonajes.forEach(personaje => {
-                        if (Array.isArray(personaje.species) && personaje.species.length === 0) {
-
+            const primeraPagina = datos.results;
+            return fetch(datos.next, opciones)
+                .then(res2 => res2.ok ? res2.json() : Promise.reject("Error segunda página"))
+                .then(datos2 => primeraPagina.concat(datos2.results));
+        })
+        .then(listaPersonajes => {
+            listaPersonajes.forEach(personaje => {
+                if (personaje.species.length > 0) {
+                    switch (personaje.species[0]) {
+                        case "https://swapi.py4e.com/api/species/2/":
+                            listaDroides.push(personaje);
+                            break;
+                        case "https://swapi.py4e.com/api/species/3/":
+                            listaWookiess.push(personaje);
+                            break;
+                        case "https://swapi.py4e.com/api/species/6/":
+                            listaYodass.push(personaje);
+                            break;
+                        default:
                             listaHumanos.push(personaje);
-                        } else {
+                    }
+                } else {
+                    listaHumanos.push(personaje);
+                }
+            });
 
-                            const especieURL = personaje.species[0];
-                            switch (especieURL) {
-                                case "https://swapi.dev/api/species/2/":
-                                    listaDroides.push(personaje);
-                                    break;
-                                case "https://swapi.dev/api/species/3/":
-                                    listaWookiess.push(personaje);
-                                    break;
-                                case "https://swapi.dev/api/species/6/":
-                                    listaYodass.push(personaje);
-                                    break;
+            const botonHumanos = document.getElementById("boton-mostrar-humanos");
+            const humanos = document.getElementById("tarhumanos");
+            let humanoClick = false;
 
-                            }
-                        }
-                    });
+            botonHumanos.addEventListener("click", () => {
+                if (!humanoClick) {
+                    const nuevoDiv = document.createElement("div");
+                    nuevoDiv.classList.add("humanos");
+                    nuevoDiv.setAttribute("id", "personajesHumanosYa");
+                    humanos.classList.replace("tarhumanos", "tarhumanos-extendido")
+                    for (let i = 0; i < 11; i++) {
+                        const personaje = listaHumanos[i];
+                        const personajeDiv = document.createElement("div");
+                        personajeDiv.classList.add("tarjeta-charac");
 
-                });
+                        personajeDiv.innerHTML = `
+                            <h1>${personaje.name}</h1>
+                            <div class="imagenPerso">
+                                <img src="${listaFotos[i]}" alt="${personaje.name}">
+                            </div>
+                            <div class="descripcion">
+                                <h2>Altura: ${personaje.height}</h2>
+                                <h2>Peso: ${personaje.mass}</h2>
+                                <h2>Cumpleaños: ${personaje.birth_year}</h2>
+                                <h2>Género: ${personaje.gender}</h2>
+                            </div>
+                        `;
+                        nuevoDiv.appendChild(personajeDiv);
+                    }
+
+                    humanos.appendChild(nuevoDiv);
+                    humanoClick = true;
+                } else {
+                    humanos.classList.replace("tarhumanos-extendido", "tarhumanos")
+                    document.getElementById("personajesHumanosYa").remove();
+                    humanoClick = false;
+                }
+            });
         })
         .catch(error => console.error(error));
-    const botonHumanos = document.getElementById("boton-mostrar-humanos");
-    const contenedorHumanos = document.getElementById("humanos-contenedor");
-    const humanos = document.getElementById("tarhumanos")
-    const tarjetaHuman = document.getElementById("personajesHumanos")
-    let humanoClick = false
-    botonHumanos.addEventListener("click", () => {
-        if (!humanoClick) {
-const nuevoDiv = document.createElement("div");nuevoDiv.classList.add("humanos")
-            for (let i = 0; i < 11; i++) {
-                
-                
-                nuevoDiv.innerHTML += `<div class="tarjeta-charac">
-                <h1>${listaHumanos[i].name}</h1>
+
+
+
+
+const botonHumanos = document.getElementById("boton-mostrar-humanos");
+const botonDroid = document.getElementById("boton-mostrar-droid");
+const botonYoda = document.getElementById("boton-mostrar-yoda");
+const botonWookie = document.getElementById("boton-mostrar-wookie");
+
+const humanos = document.getElementById("tarhumanos");
+const droides = document.getElementById("tardroid");
+const yodas = document.getElementById("taryoda");
+const wookies = document.getElementById("tarwookie");
+
+let humanoClick = false;
+let droidClick = false;
+let yodaClick = false;
+let wookieClick = false;
+
+botonDroid.addEventListener("click", () => {
+    if (!droidClick) {
+        console.log(listaDroides)
+        const nuevoDiv = document.createElement("div");
+        nuevoDiv.classList.add("droid");
+        nuevoDiv.setAttribute("id", "personajesDroidesYa");
+        droides.classList.replace("tardroid", "tardroid-extendido");
+
+        for (let i = 0; i < 3; i++) {
+            const personaje = listaDroides[i];
+            const personajeDiv = document.createElement("div");
+            personajeDiv.classList.add("tarjeta-charac");
+
+            personajeDiv.innerHTML = `
+                <h1>${listaDroides[i].name}</h1>
                 <div class="imagenPerso">
-                <img src=${listaFotos[i]}>
+                    <img src="${listaFotos[i+11]}">
                 </div>
                 <div class="descripcion">
-                <h2>Altura: ${listaHumanos[i].height}</h2>
-                <h2>Peso: ${listaHumanos[i].mass}</h2>
-                <h2>Cumpleaños: ${listaHumanos[i].birth_year}</h2>
-                <h2>Genero: ${listaHumanos[i].gender}</h2>
+                    <h2>Altura: ${personaje.height}</h2>
+                    <h2>Peso: ${personaje.mass}</h2>
+                    <h2>Cumpleaños: ${personaje.birth_year}</h2>
+                    <h2>Género: ${personaje.gender}</h2>
                 </div>
-                </div>`;
-                humanos.appendChild(nuevoDiv);
-            }
-        } else {
-            tarjetaHuman.classList.replace("humanos", "oculto");
-            humanos.classList.replace("tarhumanos-extendido", "tarhumanos");
-            humanoClick = false;
+            `;
+            nuevoDiv.appendChild(personajeDiv);
         }
-    })
+        droides.appendChild(nuevoDiv);
+        droidClick = true;
+    } else {
+        droides.classList.replace("tardroid-extendido", "tardroid");
+        document.getElementById("personajesDroidesYa").remove();
+        droidClick = false;
+    }
+});
+botonYoda.addEventListener("click", () => {
+    if (!yodaClick) {
+        const nuevoDiv = document.createElement("div");
+        nuevoDiv.classList.add("yoda");
+        nuevoDiv.setAttribute("id", "personajesYodaYa");
+        yodas.classList.replace("taryoda", "taryoda-extendido");
 
+        const personaje = listaYodass[0];  // primer y único personaje
+        const personajeDiv = document.createElement("div");
+        personajeDiv.classList.add("tarjeta-charac");
 
+        personajeDiv.innerHTML = `
+            <h1>${personaje.name}</h1>
+            <div class="imagenPerso">
+                <img src="${listaFotos[14]}" alt="${personaje.name}">
+            </div>
+            <div class="descripcion">
+                <h2>Altura: ${personaje.height}</h2>
+                <h2>Peso: ${personaje.mass}</h2>
+                <h2>Cumpleaños: ${personaje.birth_year}</h2>
+                <h2>Género: ${personaje.gender}</h2>
+            </div>
+        `;
+        nuevoDiv.appendChild(personajeDiv);
+        yodas.appendChild(nuevoDiv);
+        yodaClick = true;
+    } else {
+        yodas.classList.replace("taryoda-extendido", "taryoda");
+        document.getElementById("personajesYodaYa").remove();
+        yodaClick = false;
+    }
+});
+botonWookie.addEventListener("click", () => {
+    if (!wookieClick) {
+        const nuevoDiv = document.createElement("div");
+        nuevoDiv.classList.add("wookie");
+        nuevoDiv.setAttribute("id", "personajesWookieYa");
+        wookies.classList.replace("tarwookie", "tarwookie-extendido");
 
+        const personaje = listaWookiess[0]; 
+        const personajeDiv = document.createElement("div");
+        personajeDiv.classList.add("tarjeta-charac");
 
-    const botonDroid = document.getElementById("boton-mostrar-droid");
-    const botonYoda = document.getElementById("boton-mostrar-yoda");
-    const botonWookie = document.getElementById("boton-mostrar-wookie");
-
-
-
+        personajeDiv.innerHTML = `
+            <h1>${personaje.name}</h1>
+            <div class="imagenPerso">
+                <img src="${listaFotos[15]}" alt="${personaje.name}">
+            </div>
+            <div class="descripcion">
+                <h2>Altura: ${personaje.height}</h2>
+                <h2>Peso: ${personaje.mass}</h2>
+                <h2>Cumpleaños: ${personaje.birth_year}</h2>
+                <h2>Género: ${personaje.gender}</h2>
+            </div>
+        `;
+        nuevoDiv.appendChild(personajeDiv);
+        wookies.appendChild(nuevoDiv);
+        wookieClick = true;
+    } else {
+        wookies.classList.replace("tarwookie-extendido", "tarwookie");
+        document.getElementById("personajesWookieYa").remove();
+        wookieClick = false;
+    }
+});
 
 }
-
-
