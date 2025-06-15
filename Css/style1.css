@@ -3,7 +3,7 @@
 body {
   margin: 0;
   font-family: "Starwars";
-  cursor: url(./assets/Pointer/puntero-normal.cur),auto;
+  cursor: url(../assets/Pointer/puntero-normal.cur),auto;
 }
 
 @font-face {
@@ -33,7 +33,7 @@ body {
 #starwars {
   width: 15vh;
   margin-left: 1vh;
-  cursor:url(./assets/Pointer/puntero-hover.cur),pointer;
+  cursor:url(../assets/Pointer/puntero-hover.cur),pointer;
 }
 
 .pagina-principal-cuerpo {
@@ -55,7 +55,7 @@ body {
   height: 90vh;
   align-items: center;
   justify-content: space-between;
-    cursor:url(./assets/Pointer/puntero-hover.cur),pointer;
+    cursor:url(../assets/Pointer/puntero-hover.cur),pointer;
 }
 
 .tarjeta-inicio h1 {
@@ -401,7 +401,7 @@ body {
   position: absolute;
   z-index: 7;
   transition: transform 0.3s ease;
-  cursor:url(./assets/Pointer/puntero-hover.cur),pointer;
+  cursor:url(../assets/Pointer/puntero-hover.cur),pointer;
 }
 
 /*Planetas*/
@@ -826,7 +826,7 @@ body {
   -webkit-transition: .4s;
   -o-transition: .4s;
   transition: .4s;
-  cursor:url(./assets/Pointer/puntero-hover.cur),pointer;
+  cursor:url(../assets/Pointer/puntero-hover.cur),pointer;
   -webkit-transform: scale(var(--toggle-size));
   -ms-transform: scale(var(--toggle-size));
   transform: scale(var(--toggle-size));
