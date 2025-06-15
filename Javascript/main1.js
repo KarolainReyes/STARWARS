@@ -26,10 +26,10 @@ function cargarIndex() {
     const personajeTarjeta = document.getElementById("barra-personajes");
     const navesTarjeta = document.getElementById("barra-naves");
     const peliculasTarjeta = document.getElementById("barra-peliculas");
-    personajeTarjeta.addEventListener("click", () => { window.open("Html/characters.html", "_self") });
-    navesTarjeta.addEventListener("click", () => { window.open("Html/starships.html", "_self") });
-    peliculasTarjeta.addEventListener("click", () => { window.open("Html/movies.html", "_self") });
-    planetasPanel.addEventListener("click", () => { window.open("Html/worlds.html", "_self") });
+    personajeTarjeta.addEventListener("click", () => { window.open("/STARWARS/Html/characters.html", "_self") });
+    navesTarjeta.addEventListener("click", () => { window.open("/STARWARS/Html/starships.html", "_self") });
+    peliculasTarjeta.addEventListener("click", () => { window.open("/STARWARS/Html/movies.html", "_self") });
+    planetasPanel.addEventListener("click", () => { window.open("/STARWARS/Html/worlds.html", "_self") });
 
 
 }
