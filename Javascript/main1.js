@@ -1,3 +1,4 @@
+
 //FUNCIONALIDADES JS
 function devolverInicio() {
     const botonVolver = getElementById("starwars");
@@ -7,6 +8,7 @@ function devolverInicio() {
 //MAIN PAGE
 //Barras mouseover
 function cargarIndex() {
+    if (window.matchMedia("(min-width: 800px)").matches){
     const planetasPanel = document.getElementById("barra-planetas")
     planetasPanel.addEventListener("mouseover", planetasMostrar);
     const planetasComplementario = document.getElementById("plane");
@@ -20,12 +22,12 @@ function cargarIndex() {
     planetasPanel.addEventListener("mouseout", planetasOcultar);
     function planetasOcultar() {
         planetasComplementario.classList.replace("planeta-complementario-visible", "planeta-complementario");
-    }
-
+    } }
     //Enlaces
     const personajeTarjeta = document.getElementById("barra-personajes");
     const navesTarjeta = document.getElementById("barra-naves");
     const peliculasTarjeta = document.getElementById("barra-peliculas");
+    const planetasPanel = document.getElementById("barra-planetas");
     personajeTarjeta.addEventListener("click", () => { window.open("/STARWARS/Html/characters.html", "_self") });
     navesTarjeta.addEventListener("click", () => { window.open("/STARWARS/Html/starships.html", "_self") });
     peliculasTarjeta.addEventListener("click", () => { window.open("/STARWARS/Html/movies.html", "_self") });

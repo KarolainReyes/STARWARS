@@ -269,6 +269,11 @@ min-width: 20vw;}
 }
 
 
+.infinite-scroll-wrapper {
+	overflow: hidden;
+	width: 100%;
+	position: relative;
+}
 
 
 .scroll-container {
@@ -281,6 +286,7 @@ min-width: 20vw;}
     background-size: contain;
 }
 
+
 .scroll-container .infinite-scroll-wrapper {
 	overflow: hidden;
 	width: 100%;
@@ -288,12 +294,9 @@ min-width: 20vw;}
 }
 
 .infinite-scroll-wrapper .infinite-scroll-content {
-	display: flex;
-	flex-direction: row;
-	white-space: nowrap;
-	animation: scroll 10s linear infinite;
-	width: 100%;
-	gap: 16px;
+    display: flex;
+    animation: scroll 30s linear infinite;
+    gap: 0;
 }
 
 .infinite-scroll-wrapper .infinite-scroll-items {
@@ -346,10 +349,129 @@ min-width: 20vw;}
 }
 
 @keyframes scroll {
-	0% {
-		transform: translateX(0);
-	}
-	100% {
-		transform: translateX(-50%);
-	}
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-300%);
+    }
+}
+
+@media screen and (max-width:800px) {
+    .infinite-scroll-wrapper .infinite-scroll-content {
+    display: flex;
+    animation: scroll 30s linear infinite !important;
+    gap: 0;
+    
+}
+    @keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-1000%);
+    }
+}
+
+
+#titulo-naves {
+    color: white;
+    font-size: 8vh;
+    position: fixed;
+    top: 7vh;
+    z-index: 6;
+}
+
+.contenedor_naves {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-areas: "halcon-milenario" "descrip-halcon-milenario"
+        "crucero-estelar" "descrip-crucero-estelar" 
+        "interceptor-jedi-de-ahsoka" "descrip-interceptor-jedi-de-ahsoka"
+        "caza-tie-y-ala-x-fusionados" "descrip-caza-tie-y-ala-x-fusionados" ;
+    width: 90%;
+    top: 12vh;
+    position: relative;
+    overflow-y: scroll;
+    height: 80vh;
+    box-shadow: 2px 5px 10px 10px rgba(255, 255, 255, 0.219);
+    margin-bottom: 13vh;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.main-starships {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#halcon-milenario {
+    grid-area: halcon-milenario;
+
+}
+
+#descrip-halcon-milenario {
+    grid-area: descrip-halcon-milenario;
+}
+
+#descrip-crucero-estelar {
+    grid-area: descrip-crucero-estelar;
+}
+
+#crucero-estelar {
+    grid-area: crucero-estelar;
+}
+
+#interceptor-jedi-de-ahsoka {
+    grid-area: interceptor-jedi-de-ahsoka;
+}
+
+#descrip-interceptor-jedi-de-ahsoka {
+    grid-area: descrip-interceptor-jedi-de-ahsoka;
+}
+
+#descrip-caza-tie-y-ala-x-fusionados {
+    grid-area: descrip-caza-tie-y-ala-x-fusionados;
+}
+
+#caza-tie-y-ala-x-fusionados {
+    grid-area: caza-tie-y-ala-x-fusionados;
+}
+
+.descripcion-naves {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 5vh;
+}
+
+
+.videos-naves {
+    box-sizing: border-box;
+    background-color: white;
+    width: 100%;
+
+}
+
+.video-crucero {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.video-halcon {
+    width: 100%;
+}
+
+.subtitulo {
+    padding: 2vh;
+    color: white;
+    font-size: 5vh;
+    z-index: 6;
+    text-align: center;
+    font-family: "VT323", monospace;
+}
+
+
 }

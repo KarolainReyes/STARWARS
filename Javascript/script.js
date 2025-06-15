@@ -24,7 +24,7 @@ if (document.body.classList.contains("body-naves")) {
 
 //PAGINA DE PELICULAS
 if (document.body.classList.contains("body-movies")) {
-    const defaultItemCount = 7;
+    const defaultItemCount = content.children.length;
     const itemWidth = 238;
 
     const wrapper = document.getElementById("InfiniteScrollWrapper");
