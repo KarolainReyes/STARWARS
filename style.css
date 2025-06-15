@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url(images/fondo.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.encabezado {
+    display: flex;
+    height: 10vh;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    width: 100%;
+    position: fixed;
+}
+
+/*Vista Peliculas*/
+.contenedor_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    z-index: 6;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: backround-image 0.5s ease-in-out;
+    position: relative;
+}
+
+.contenedor_logo::before {
+    content: "";
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+#logo-starwars {
+    margin: 20px;
+    width: 80%;
+    height: 100%;
+}
+
+
+
+
+.caratulas {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 1vh;
+    text-align: center;
+    gap: 1vh;
+}
+
+.caratulas img {
+    width: 100%;
+max-width: 20vw;
+min-width: 20vw;}   
+
+.contenedor_movies {
+    display: grid;
+    grid-template-areas: "pelicula1 pelicula2 pelicula3"
+        "pelicula4 pelicula5 pelicula6";
+    grid-column: 20% 20% 20%;
+    grid-row: 40% 40%;
+    gap: 5vh;
+    overflow:hidden;
+    width: 80%;align-self: center;justify-self: center;
+    
+}
+
+#pelicula1 {
+    grid-area: pelicula1;
+    width: 100%;
+}
+#pelicula1:hover {width: 40vw;
+}
+#pelicula1:hover .contenido-oculto{display: block;}
+#pelicula2:hover {width: 40vw;
+}
+#pelicula2:hover .contenido-oculto{display: block;}
+#pelicula3:hover {width: 40vw;
+}
+#pelicula3:hover .contenido-oculto{display: block;}
+#pelicula4:hover {width: 40vw;
+}
+#pelicula4:hover .contenido-oculto{display: block;}
+#pelicula5:hover {width: 40vw;
+}
+#pelicula5:hover .contenido-oculto{display: block;}
+#pelicula6:hover {width: 40vw;box-sizing: border-box;
+}
+#pelicula2 {
+    grid-area: pelicula2;
+}
+
+#pelicula3 {
+    grid-area: pelicula3;
+}
+
+#pelicula4 {
+    grid-area: pelicula4;
+}
+
+#pelicula5 {
+    grid-area: pelicula5;
+}
+
+#pelicula6 {
+    grid-area: pelicula6;
+}
+
+
+.peliculas {
+    position: relative;
+    width: 250px;
+    height: 350px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.contenido-oculto {
+    color: white;
+    background-color: rgb(179, 175, 175);
+    display: none;
+    width: 20vh;
+}
+
+
+
+/*Vista Naves*/
+
+#titulo-naves {
+    color: white;
+    font-size: 8vh;
+    position: fixed;
+    top: 10vh;
+    z-index: 6;
+}
+
+.contenedor_naves {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "halcon-milenario descrip-halcon-milenario"
+        "descrip-crucero-estelar crucero-estelar"
+        "interceptor-jedi-de-ahsoka descrip-interceptor-jedi-de-ahsoka"
+        "descrip-caza-tie-y-ala-x-fusionados caza-tie-y-ala-x-fusionados";
+    width: 80%;
+    top: 20vh;
+    position: relative;
+    overflow-y: scroll;
+    height: 80vh;
+    box-shadow: 2px 5px 10px 10px rgba(255, 255, 255, 0.219);
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.main-starships {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#halcon-milenario {
+    grid-area: halcon-milenario;
+
+}
+
+#descrip-halcon-milenario {
+    grid-area: descrip-halcon-milenario;
+}
+
+#descrip-crucero-estelar {
+    grid-area: descrip-crucero-estelar;
+}
+
+#crucero-estelar {
+    grid-area: crucero-estelar;
+}
+
+#interceptor-jedi-de-ahsoka {
+    grid-area: interceptor-jedi-de-ahsoka;
+}
+
+#descrip-interceptor-jedi-de-ahsoka {
+    grid-area: descrip-interceptor-jedi-de-ahsoka;
+}
+
+#descrip-caza-tie-y-ala-x-fusionados {
+    grid-area: descrip-caza-tie-y-ala-x-fusionados;
+}
+
+#caza-tie-y-ala-x-fusionados {
+    grid-area: caza-tie-y-ala-x-fusionados;
+}
+
+.descripcion-naves {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 5vh;
+}
+
+
+.videos-naves {
+    box-sizing: border-box;
+    background-color: white;
+    width: 100%;
+
+}
+
+.video-crucero {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.video-halcon {
+    width: 100%;
+}
+
+.subtitulo {
+    padding: 2vh;
+    color: white;
+    font-size: 5vh;
+    z-index: 6;
+    text-align: center;
+    font-family: "VT323", monospace;
+}
+
+.relleno-pagina-ships{height: 22vh;}
+
+
+.scroll-container {
+	height: 100svh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #121212;
+}
+
+.scroll-container .infinite-scroll-wrapper {
+	overflow: hidden;
+	width: 100%;
+	position: relative;
+}
+
+.infinite-scroll-wrapper .infinite-scroll-content {
+	display: flex;
+	flex-direction: row;
+	white-space: nowrap;
+	animation: scroll 50s linear infinite;
+	width: 100%;
+	gap: 16px;
+}
+
+.infinite-scroll-wrapper .infinite-scroll-items {
+	display: flex;
+	flex-direction: row;
+	flex-shrink: 0;
+	gap: 16px;
+    height: 60vh;
+}
+
+.infinite-scroll-items .item-wrap {
+	position: relative;
+	min-width: 238px;
+	height: 315px;
+	flex-shrink: 0;
+	overflow: hidden;
+    height: 60vh;
+}
+
+.item-wrap img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.3s ease;
+}
+
+.item-wrap .text {
+	position: absolute;
+	top: 16px;
+	left: 16px;
+	z-index: 10;
+	color: #fff;
+	font-weight: 600;
+    font-size: 1.5rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.item-wrap:hover img {
+	transform: scale(1.05);
+}
+
+@media (min-width: 1024px) {
+	.infinite-scroll-wrapper:hover .infinite-scroll-content {
+		animation-play-state: paused;
+	}
+}
+
+@keyframes scroll {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
+}
