@@ -720,7 +720,7 @@ body {
     height: 90vh;
     flex-direction: column;
   }
-  .pagina-planetas{width: 100vw !important;height: 100% !important;}
+  .pagina-planetas{width: 110vw !important;height: 100% !important;}
   .tarjeta-inicio {
     width: 100%;
     display: flex;
