@@ -4,7 +4,11 @@
     margin: 0;
 }
 
-
+@font-face {
+  font-family: "Starwars";
+  src: url('../fonts/star_jedi/starjedi/Starjedi.ttf');
+  font-weight: 600;
+}
 
 
 body {
@@ -17,6 +21,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     cursor: url(../assets/Pointer/puntero-normal.cur),auto;
+    font-family: "Starwars";
 }
 
 .encabezado {
@@ -322,7 +327,9 @@ min-width: 20vw;}
 	z-index: 10;
 	color: #fff;
 	font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
+    padding: 1vh;
+    text-align: center;
     word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: normal;

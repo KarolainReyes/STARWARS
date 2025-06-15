@@ -8,7 +8,7 @@ body {
 
 @font-face {
   font-family: "Starwars";
-  src: url('fonts/star_jedi/starjedi/Starjedi.ttf');
+  src: url('../fonts/star_jedi/starjedi/Starjedi.ttf');
   font-weight: 600;
 }
 
