@@ -368,7 +368,7 @@ body {
 }
 
 .pagina-mundo {
-  background-color: rgba(11, 13, 15, 255);
+  background:linear-gradient(to bottom, rgba(10,11,11,255),rgba(12,14,14,255), rgba(11,11,12,255) ) ;
   display: flex;
   flex-direction: column;
 }
@@ -643,7 +643,7 @@ body {
   color: rgb(192, 192, 192);
   background-color: rgba(128, 128, 128, 0.521);
   border: 1px white solid;
-  padding: 2vh;
+  padding: 1vw;
   border-radius: 5%;
   white-space: normal;
   word-wrap: break-word;
@@ -669,6 +669,7 @@ body {
 .contenidoPlanetas h1 {
   font-size: 1.5vw;
   width: 100%;
+  margin-top: 0;
 }
 
 .contenidoPlanetas h2 {

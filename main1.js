@@ -194,7 +194,7 @@ if (document.body.classList.contains("pagina-planetas")) {
 
     document.addEventListener("click", function (event) {
         let planetaDis = [0.7, 0.12, 1.6, 0.5, 0.6, 0.2, 0.25, 0.15, 0.16, 0.13, 0.2, 1.9, 0.4, 0.3, 0.1, 0.1, 0.2, 0.1, 0.4, 0.1];
-
+        let planetaSid = []
         if (event.target.classList.contains("planetas-mapa")) {
             const elemento = event.target;
             let id = Number(elemento.id.replace("planeta", ""));
@@ -209,10 +209,21 @@ if (document.body.classList.contains("pagina-planetas")) {
             const mapa = document.getElementById("mapa-mundo");
             const estilos = getComputedStyle(elemento);
             const izquierdo = estilos.left;
-            const altura = estilos.top;
+            let altura
+            if (id != 11 && id != 3 && id != 13 && id != 15 && id != 19) { altura = Number(estilos.top.replace("px", "")); }
+            else { altura = Number(estilos.top.replace("px", "") - estilos.top.replace("px", "") * 0.2);console.log(altura) }
+
+            let izquierda
             let izq = Number(izquierdo.replace("px", ""));
-            let multi = izq * planetaDis[id];
-            let izquierda = izq + multi;
+            if (id != 17 && id != 8 && id != 7 && id != 6 && id != 19 && id != 15) {
+
+                let multi = izq * planetaDis[id];
+                izquierda = izq + multi;
+            } else {
+
+                let multi = izq * 0.3;
+                izquierda = izq - multi;
+            }
 
             let contenidoPlaneta = document.createElement("div");
             contenidoPlaneta.id = "planetaInfo";
@@ -226,7 +237,7 @@ if (document.body.classList.contains("pagina-planetas")) {
             contenidoPlaneta.classList.add("contenidoPlanetas");
             contenidoPlaneta.style.position = "absolute";
             contenidoPlaneta.style.left = izquierda + "px";
-            contenidoPlaneta.style.top = altura;
+            contenidoPlaneta.style.top = altura + "px";
 
             mapa.appendChild(contenidoPlaneta);
 
