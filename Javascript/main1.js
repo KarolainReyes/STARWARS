@@ -379,6 +379,6 @@ if (document.body.classList.contains("pagina-personajes")) {
 document.addEventListener("DOMContentLoaded", () => {
     const botonVolver = document.getElementById("starwars");
     botonVolver.addEventListener("click", () => {
-        window.open("../index.html", "_self");
+        window.open("/STARWARS/index.html", "_self");
     });
 });
