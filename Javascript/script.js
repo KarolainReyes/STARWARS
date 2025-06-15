@@ -74,9 +74,3 @@ if (document.body.classList.contains("body-movies")) {
     window.addEventListener("resize", handleResize);
 
 }
-document.addEventListener("DOMContentLoaded", () => {
-    const botonVolver = document.getElementById("starwars");
-    botonVolver.addEventListener("click", () => {
-        window.open("../index.html", "_self");
-    });
-});
