@@ -3,6 +3,7 @@
 body {
   margin: 0;
   font-family: "Starwars";
+  cursor: url(./assets/Pointer/puntero-normal.cur),auto;
 }
 
 @font-face {
@@ -32,6 +33,7 @@ body {
 #starwars {
   width: 15vh;
   margin-left: 1vh;
+  cursor:url(./assets/Pointer/puntero-hover.cur),pointer;
 }
 
 .pagina-principal-cuerpo {
@@ -53,6 +55,7 @@ body {
   height: 90vh;
   align-items: center;
   justify-content: space-between;
+    cursor:url(./assets/Pointer/puntero-hover.cur),pointer;
 }
 
 .tarjeta-inicio h1 {
@@ -144,8 +147,55 @@ body {
   padding-bottom: 5%;
   color: rgb(0, 0, 0);
   flex-direction: column;
-  box-sizing: content-box;
+  box-sizing: content-box;}
+
+#resultadosBusqueda {
+    position: absolute;
+    top: calc(20%);
+    left: 25%; 
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 15px;
+    border-radius: 12px;
+    z-index: 9999;
+    display: none;
+    max-height: 50vh;
+    overflow-y: auto;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
 }
+
+.resultado-item {
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 10px;
+}
+
+.resultado-contenido {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.resultado-contenido img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 10px;
+    background-color: #111;
+    padding: 5px;
+}
+
+.info-planeta {
+    color: white;
+    font-size: 0.85rem;
+}
+
+.info-planeta h2 {
+    font-size: 1rem;
+    margin: 0 0 5px 0;
+}
+
 
 .tarjeta label {
   position: absolute;
@@ -351,6 +401,7 @@ body {
   position: absolute;
   z-index: 7;
   transition: transform 0.3s ease;
+  cursor:url(./assets/Pointer/puntero-hover.cur),pointer;
 }
 
 /*Planetas*/
@@ -774,7 +825,7 @@ body {
   -webkit-transition: .4s;
   -o-transition: .4s;
   transition: .4s;
-  cursor: pointer;
+  cursor:url(./assets/Pointer/puntero-hover.cur),pointer;
   -webkit-transform: scale(var(--toggle-size));
   -ms-transform: scale(var(--toggle-size));
   transform: scale(var(--toggle-size));
