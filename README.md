@@ -41,7 +41,7 @@ Una API RESTful pública con acceso a datos del universo Star Wars.
 Esta vista busca mostrarle al usuario un menú interactivo y visual de las diferentes secciones que puede encontrar en nuestra página.  
 Al pasar el mouse sobre cada sección, esta se despliega para mostrar mejor las imágenes que se contienen en ella, incentivando la exploración visual y facilitando la navegación hacia secciones como personajes, galaxias, películas y naves.
 
-![alt text](image.png)
+![Vista principal](/ReadmeFiles/vista-principal.png)
 
 ### Vista Personajes:
 
@@ -50,7 +50,7 @@ Cada tarjeta presenta el nombre, género, altura y peso del personaje, todo obte
 El diseño está orientado a la lectura rápida y amigable, con tarjetas responsive que se ajustan a cualquier tamaño de pantalla.
 
 
-![alt text](image-1.png)
+![Vista personajes](/ReadmeFiles/vista-personajes.png)
 
 ### Vista Galaxia - Planetas:
 
@@ -58,7 +58,7 @@ Esta vista muestra una colección de planetas del universo de Star Wars.
 Cada tarjeta incluye información relevante como el nombre del planeta, su clima, terreno y la población.  
 Se diseñó con un enfoque visual claro que permite comparar planetas de manera sencilla y atractiva para el usuario.
 
-![alt text](image-2.png)
+![Vista Planetas](/ReadmeFiles/vista-galaxia.png)
 
 ### Vista Peliculas:
 
@@ -66,8 +66,8 @@ Aquí se listan las películas oficiales de Star Wars en orden cronológico de a
 Cada tarjeta incluye el título de la película, fecha de estreno, número de episodio y una breve sinopsis.  
 Además, se integran elementos visuales que remiten al diseño cinematográfico para dar un toque más temático.
 
-![alt text](image-3.png)
-![alt text](image-4.png)
+![Vista inicio peliculas](/ReadmeFiles/vista-inicio-peliculas.png)
+![Vista peliculas](/ReadmeFiles/vista-peliculas.png)
 
 ### Vista Naves:
 
@@ -75,7 +75,7 @@ En esta sección, se muestra una galería de las naves espaciales más conocidas
 Cada tarjeta presenta el nombre de la nave, modelo, fabricante, capacidad y clase.  
 El diseño ofrece una vista ordenada para los amantes de la tecnología y la ingeniería dentro del lore de Star Wars.
 
-![alt text](image-5.png)
+![Vista naves](/ReadmeFiles/vista-naves.png)
 
 ## 📦 Estructura del proyecto
 ```
